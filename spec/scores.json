@@ -20,7 +20,8 @@
     "y": {
       "field": "name",
       "type": "nominal",
-      "sort": { "field": "stars", "order": "descending" }
+      "sort": { "field": "stars", "order": "descending" },
+      "title": null
     },
     "x": {
       "field": "stars",

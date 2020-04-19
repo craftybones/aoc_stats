@@ -22,6 +22,9 @@ const toSVG = async (specFile, data, template, key) => {
 
 toSVG('timelines', data, template, '__TIMELINE__')
   .then(newTemplate => toSVG('scores', data, newTemplate, '__SCORES__'))
+  .then(newTemplate =>
+    toSVG('timelineSummary', data, newTemplate, '__TIMELINE_SUMMARY__')
+  )
   .then(newTemplate => {
     if (!fs.existsSync('./public')) fs.mkdirSync('./public');
     fs.writeFileSync('./public/index.html', newTemplate, 'utf8');

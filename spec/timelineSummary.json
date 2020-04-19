@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "name": "foo",
+    "url": "/final_data.json"
+  },
+  "mark": {
+    "type": "circle",
+    "thickness": 1
+  },
+  "title": "Advent of Code Timeline Summary",
+  "config": {
+    "axis": {
+      "grid": true
+    }
+  },
+  "width": 1200,
+  "height": 700,
+  "encoding": {
+    "x": { "field": "ts", "type": "temporal", "title": "Day" },
+    "y": {
+      "field": "name",
+      "type": "nominal",
+      "sort": { "field": "stars", "order": "ascending" },
+      "axis": {
+        "orient": "right",
+        "labelPadding": 10,
+        "labelFontSize": 12
+      }
+    },
+    "color": {
+      "field": "name",
+      "type": "nominal",
+      "legend": null,
+      "scale": { "scheme": "category20" }
+    },
+    "size": {
+      "field": "level",
+      "type": "quantitative",
+      "legend": { "orient": "left" }
+    }
+  }
+}

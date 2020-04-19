@@ -18,8 +18,8 @@
     "facet": {
       "field": "name",
       "type": "nominal",
-      "columns": 7,
-      "sort": { "field": "local_score", "order": "descending" }
+      "columns": 6,
+      "sort": { "field": "stars", "order": "descending" }
     },
     "y": {
       "field": "level",

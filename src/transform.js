@@ -18,7 +18,7 @@ exports.transform = data => {
         const date = new Date(+stars['2'].get_star_ts * 1000);
         stars['2'].ts = date.toISOString();
         Object.assign(stars['2'], record);
-        delete stars['2'].ts;
+        delete stars['2'].get_star_ts;
         result.push(stars['2']);
       }
     });
