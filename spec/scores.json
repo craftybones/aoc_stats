@@ -1,0 +1,35 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "name": "foo"
+  },
+  "mark": {
+    "type": "bar",
+    "size": 25
+  },
+  "title": "Advent of Code Stars",
+  "config": {
+    "axis": {
+      "grid": true
+    }
+  },
+  "width": 880,
+  "height": 680,
+  "encoding": {
+    "y": {
+      "field": "name",
+      "type": "nominal",
+      "title": "Name",
+      "sort": { "field": "stars", "order": "descending" }
+    },
+    "x": {
+      "field": "stars",
+      "type": "quantitative",
+      "title": "Stars",
+      "aggregate": "max",
+      "stack": null
+    },
+    "color": { "field": "level", "type": "nominal" }
+  }
+}

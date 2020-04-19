@@ -4,9 +4,9 @@ const vegaLite = require('vega-lite');
 const data = require('../final_data.json');
 
 const template = fs.readFileSync('./template/template.html', 'utf8');
-const spec = JSON.parse(fs.readFileSync('./spec/spec.json', 'utf8'));
 
-const toSVG = async (spec, data, template) => {
+const toSVG = async (specFile, data, template, key) => {
+  const spec = JSON.parse(fs.readFileSync(`./spec/${specFile}.json`, 'utf8'));
   spec.data.values = data;
   delete spec.data.url;
   console.log('Compiling vega lite specs to vega...');
@@ -17,10 +17,12 @@ const toSVG = async (spec, data, template) => {
   const view = new vega.View(parsedSpec, { renderer: 'none' });
   console.log('Rendering svg...');
   const svg = await view.toSVG();
-  return template.replace('__TIMELINE__', svg);
+  return template.replace(key, svg);
 };
 
-toSVG(spec, data, template).then(newTemplate => {
-  if (!fs.existsSync('./public')) fs.mkdirSync('./public');
-  fs.writeFileSync('./public/index.html', newTemplate, 'utf8');
-});
+toSVG('timelines', data, template, '__TIMELINE__')
+  .then(newTemplate => toSVG('scores', data, newTemplate, '__SCORES__'))
+  .then(newTemplate => {
+    if (!fs.existsSync('./public')) fs.mkdirSync('./public');
+    fs.writeFileSync('./public/index.html', newTemplate, 'utf8');
+  });

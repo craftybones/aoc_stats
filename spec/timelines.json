@@ -27,7 +27,7 @@
       "title": "Level",
       "sort": "-y"
     },
-    "x": { "field": "get_star_ts", "type": "temporal", "title": "Day" },
+    "x": { "field": "ts", "type": "temporal", "title": "Day" },
     "size": { "value": 80 },
     "color": { "field": "level", "type": "nominal" }
   }
