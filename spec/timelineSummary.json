@@ -21,6 +21,7 @@
     "x": { "field": "ts", "type": "temporal", "title": "Day" },
     "y": {
       "field": "name",
+      "title": null,
       "type": "nominal",
       "sort": { "field": "stars", "order": "ascending" },
       "axis": {
@@ -38,7 +39,7 @@
     "size": {
       "field": "level",
       "type": "quantitative",
-      "legend": { "orient": "left" }
+      "legend": { "orient": "top" }
     }
   }
 }

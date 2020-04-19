@@ -11,7 +11,8 @@
   "title": "Advent of Code Stars",
   "config": {
     "axis": {
-      "grid": true
+      "grid": true,
+      "labelFontSize": 12
     }
   },
   "width": 880,
@@ -30,6 +31,10 @@
       "aggregate": "max",
       "stack": null
     },
-    "color": { "field": "level", "type": "nominal" }
+    "color": {
+      "field": "level",
+      "type": "nominal",
+      "scale": { "scheme": "lightmulti" }
+    }
   }
 }

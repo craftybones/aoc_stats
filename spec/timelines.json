@@ -9,17 +9,24 @@
   "title": "Advent of Code Timelines",
   "config": {
     "axis": {
-      "grid": true
+      "grid": true,
+      "labelFontSize": 12,
+      "titleFontSize": 14
     }
   },
-  "width": 180,
+  "width": 540,
   "height": 180,
   "encoding": {
     "facet": {
       "field": "name",
+      "title": null,
       "type": "nominal",
-      "columns": 6,
-      "sort": { "field": "stars", "order": "descending" }
+      "columns": 2,
+      "sort": { "field": "stars", "order": "descending" },
+      "spacing": { "row": 50, "column": 50 },
+      "header": {
+        "labelFontSize": 14
+      }
     },
     "y": {
       "field": "level",
@@ -30,5 +37,6 @@
     "x": { "field": "ts", "type": "temporal", "title": "Day" },
     "size": { "value": 80 },
     "color": { "field": "level", "type": "nominal" }
-  }
+  },
+  "resolve": { "axis": { "x": "independent", "y": "independent" } }
 }
