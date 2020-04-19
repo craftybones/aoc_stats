@@ -1,0 +1,34 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "name": "foo",
+    "url": "/final_data.json"
+  },
+  "mark": "circle",
+  "title": "Advent of Code Timelines",
+  "config": {
+    "axis": {
+      "grid": true
+    }
+  },
+  "width": 180,
+  "height": 180,
+  "encoding": {
+    "facet": {
+      "field": "name",
+      "type": "nominal",
+      "columns": 7,
+      "sort": { "field": "local_score", "order": "descending" }
+    },
+    "y": {
+      "field": "level",
+      "type": "ordinal",
+      "title": "Level",
+      "sort": "-y"
+    },
+    "x": { "field": "get_star_ts", "type": "temporal", "title": "Day" },
+    "size": { "value": 80 },
+    "color": { "field": "level", "type": "nominal" }
+  }
+}

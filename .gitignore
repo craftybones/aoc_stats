@@ -1,0 +1,4 @@
+.vscode/
+node_modules/
+final_data.json
+public/*
