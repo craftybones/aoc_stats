@@ -6,7 +6,7 @@
   },
   "mark": {
     "type": "bar",
-    "size": 25
+    "size": 20
   },
   "title": "Advent of Code Stars",
   "config": {
