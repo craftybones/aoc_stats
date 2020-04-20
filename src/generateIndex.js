@@ -25,6 +25,7 @@ toSVG('timelines', data, template, '__TIMELINE__')
   .then(newTemplate =>
     toSVG('timelineSummary', data, newTemplate, '__TIMELINE_SUMMARY__')
   )
+  .then(newTemplate => toSVG('hours', data, newTemplate, '__HOURS__'))
   .then(newTemplate => {
     if (!fs.existsSync('./public')) fs.mkdirSync('./public');
     fs.writeFileSync('./public/index.html', newTemplate, 'utf8');

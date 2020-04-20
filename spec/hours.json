@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "name": "foo",
+    "url": "/final_data.json"
+  },
+  "mark": {
+    "type": "circle",
+    "thickness": 1
+  },
+  "title": "Hours / Day",
+  "config": {
+    "axis": {
+      "grid": true,
+      "labelFontSize": 12
+    },
+    "title": {
+      "offset": 30,
+      "fontSize": 16,
+      "orient": "top"
+    }
+  },
+  "width": 200,
+  "height": 200,
+  "encoding": {
+    "facet": {
+      "field": "name",
+      "type": "nominal",
+      "columns": 5,
+      "header": {
+        "labelFontSize": 14
+      },
+      "title": null,
+      "spacing": { "row": 50, "column": 10 },
+      "sort": { "field": "stars", "order": "descending" }
+    },
+
+    "x": { "field": "ts", "type": "temporal", "axis": { "title": null } },
+    "y": {
+      "field": "ts",
+      "type": "temporal",
+      "timeUnit": "hours",
+      "axis": { "title": null }
+    },
+    "color": {
+      "field": "level",
+      "type": "nominal",
+      "legend": null,
+      "scale": { "scheme": "lightmulti" }
+    },
+    "size": { "value": 100 }
+  },
+  "resolve": { "axis": { "x": "independent" } }
+}
