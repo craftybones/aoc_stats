@@ -4,10 +4,23 @@
   "data": {
     "name": "foo"
   },
-  "mark": {
-    "type": "bar",
-    "size": 20
-  },
+  "transform": [
+    {
+      "aggregate": [
+        {
+          "op": "max",
+          "field": "level",
+          "as": "final_level"
+        },
+        {
+          "op": "count",
+          "field": "stars",
+          "as": "final_stars"
+        }
+      ],
+      "groupby": ["name"]
+    }
+  ],
   "title": "Advent of Code Stars",
   "config": {
     "axis": {
@@ -15,26 +28,57 @@
       "labelFontSize": 12
     }
   },
-  "width": 880,
-  "height": 680,
   "encoding": {
     "y": {
+      "sort": "-x",
       "field": "name",
       "type": "nominal",
-      "sort": { "field": "stars", "order": "descending" },
       "title": null
     },
     "x": {
-      "field": "stars",
+      "field": "final_stars",
       "type": "quantitative",
-      "title": "Stars",
-      "aggregate": "max",
-      "stack": null
-    },
-    "color": {
-      "field": "level",
-      "type": "nominal",
-      "scale": { "scheme": "lightmulti" }
+      "title": "Stars"
     }
-  }
+  },
+  "width": 880,
+  "height": 680,
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "size": 20
+      },
+      "encoding": {
+        "color": {
+          "field": "final_stars",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "lightmulti"
+          },
+          "legend": {
+            "title": "Stars"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": -20
+      },
+      "encoding": {
+        "text": { "field": "final_level", "type": "ordinal" },
+        "color": {
+          "condition": {
+            "test": "datum['final_level'] < 10",
+            "value": "black"
+          },
+          "value": "white"
+        }
+      }
+    }
+  ]
 }
