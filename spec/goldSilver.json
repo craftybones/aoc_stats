@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "description": "A simple bar chart with embedded data.",
+  "data": {
+    "name": "foo"
+  },
+
+  "config": {
+    "axis": { "grid": true }
+  },
+
+  "mark": {
+    "type": "circle",
+    "opacity": 1
+  },
+  "height": 600,
+  "width": 800,
+  "encoding": {
+    "x": {
+      "field": "level",
+      "type": "ordinal",
+      "scale": { "domain": { "unionWith": [18] } },
+      "axis": { "labelAngle": 0, "labelFontSize": 12 }
+    },
+    "y": {
+      "field": "name",
+      "type": "nominal",
+      "sort": { "field": "stars", "order": "descending" },
+      "axis": { "labelFontSize": 12 }
+    },
+    "color": {
+      "field": "level",
+      "aggregate": "count",
+      "type": "ordinal",
+      "scale": {
+        "range": ["silver", "orange"]
+      },
+      "legend": null
+    },
+    "size": { "value": 100 }
+  }
+}

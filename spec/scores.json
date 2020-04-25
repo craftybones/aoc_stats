@@ -26,7 +26,8 @@
     "axis": {
       "grid": true,
       "labelFontSize": 12
-    }
+    },
+    "font": "sans-serif"
   },
   "encoding": {
     "y": {
@@ -67,7 +68,8 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": -20
+        "dx": -20,
+        "font": "sans-serif"
       },
       "encoding": {
         "text": { "field": "final_level", "type": "ordinal" },
