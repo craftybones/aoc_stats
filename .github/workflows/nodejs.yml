@@ -37,6 +37,8 @@ jobs:
       - run: npm run notify_slack
         env:
           TZ: Asia/Kolkata
+          MINUTES: ${{ secrets.MINUTES }}
+          SLACK_URL: ${{ secrets.SLACK_URL }}
       - run: npm run build --if-present
         env:
           CI: true
