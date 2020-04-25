@@ -34,6 +34,9 @@ jobs:
         env:
           TZ: Asia/Kolkata
           AOC_SESSION_ID: ${{ secrets.AOC_SESSION_ID }}
+      - run: npm run notify_slack
+        env:
+          TZ: Asia/Kolkata
       - run: npm run build --if-present
         env:
           CI: true
