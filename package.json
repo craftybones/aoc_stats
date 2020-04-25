@@ -12,7 +12,8 @@
   "scripts": {
     "fetch_data": "node src/fetchData.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node src/generateIndex.js"
+    "build": "node src/generateIndex.js",
+    "notify_slack": "node src/notifySlack.js"
   },
   "author": "",
   "license": "ISC"
