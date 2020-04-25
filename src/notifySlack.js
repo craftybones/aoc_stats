@@ -29,4 +29,4 @@ const minutes = +process.env.MINUTES || 15;
 console.log('minutes is', minutes);
 const filteredEvents = getEventsWithinWindow(data, minutes);
 console.log(filteredEvents);
-notifySlack(filteredEvents);
+if (filteredEvents.length > 0) notifySlack(filteredEvents);
