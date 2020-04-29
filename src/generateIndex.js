@@ -26,6 +26,7 @@ toSVG('timelines', data, template, '__TIMELINE__')
     toSVG('timelineSummary', data, newTemplate, '__TIMELINE_SUMMARY__')
   )
   .then(newTemplate => toSVG('hours', data, newTemplate, '__HOURS__'))
+  .then(newTemplate => toSVG('histogram', data, newTemplate, '__HISTOGRAM__'))
   .then(newTemplate => toSVG('goldSilver', data, newTemplate, '__GOLD__'))
   .then(newTemplate => {
     if (!fs.existsSync('./public')) fs.mkdirSync('./public');
