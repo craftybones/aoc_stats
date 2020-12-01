@@ -1,7 +1,7 @@
 const ld = require('lodash');
 
-exports.transform = data => {
-  delete data.members[data.owner_id];
+exports.transform = (data) => {
+  // delete data.members[data.owner_id];
   delete data.members['910939'];
   const flattened = ld.flatMap(data.members, (details, memberId) => {
     const result = [];
