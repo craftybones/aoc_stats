@@ -18,8 +18,8 @@
   "encoding": {
     "x": {
       "field": "level",
-      "type": "ordinal",
-      "scale": { "domain": { "unionWith": [18] } },
+      "type": "quantitative",
+      "scale": { "domain": [1, 25] },
       "axis": { "labelAngle": 0, "labelFontSize": 12 }
     },
     "y": {

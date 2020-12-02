@@ -39,7 +39,8 @@
     "x": {
       "field": "final_stars",
       "type": "quantitative",
-      "title": "Stars"
+      "title": "Stars",
+      "scale": { "domain": [0, 50] }
     }
   },
   "width": 880,
@@ -55,7 +56,7 @@
           "field": "final_stars",
           "type": "quantitative",
           "scale": {
-            "scheme": "lightmulti"
+            "scheme": "lightgreyteal"
           },
           "legend": {
             "title": "Stars"
@@ -68,7 +69,7 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": -20,
+        "dx": -10,
         "font": "sans-serif"
       },
       "encoding": {
@@ -76,7 +77,7 @@
         "color": {
           "condition": {
             "test": "datum['final_level'] < 10",
-            "value": "black"
+            "value": "white"
           },
           "value": "white"
         }
