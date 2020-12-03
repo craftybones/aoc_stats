@@ -49,7 +49,7 @@
     {
       "mark": {
         "type": "bar",
-        "size": 20
+        "size": 18
       },
       "encoding": {
         "color": {
