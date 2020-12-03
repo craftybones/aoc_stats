@@ -36,12 +36,23 @@
       "sort": { "field": "stars", "order": "descending" }
     },
 
-    "x": { "field": "ts", "type": "temporal", "axis": { "title": null } },
+    "x": {
+      "field": "ts",
+      "type": "temporal",
+      "axis": { "title": null },
+      "scale": {
+        "domain": [
+          { "year": 2020, "month": 12, "date": 1 },
+          { "year": 2020, "month": 12, "date": 26 }
+        ]
+      }
+    },
     "y": {
       "field": "ts",
       "type": "temporal",
       "timeUnit": "hours",
-      "axis": { "title": null }
+      "axis": { "title": null },
+      "scale": { "domain": [{ "hours": 0 }, { "hours": 24 }] }
     },
     "color": {
       "field": "level",

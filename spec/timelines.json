@@ -30,11 +30,22 @@
     },
     "y": {
       "field": "level",
-      "type": "ordinal",
+      "type": "quantitative",
       "title": "Level",
-      "sort": "-y"
+      "sort": "-y",
+      "scale": { "domain": [1, 25] }
     },
-    "x": { "field": "ts", "type": "temporal", "title": "Day" },
+    "x": {
+      "field": "ts",
+      "type": "temporal",
+      "title": "Day",
+      "scale": {
+        "domain": [
+          { "year": 2020, "month": 12, "date": 1 },
+          { "year": 2020, "month": 12, "date": 26 }
+        ]
+      }
+    },
     "size": { "value": 80 },
     "color": { "field": "level", "type": "nominal" }
   },
