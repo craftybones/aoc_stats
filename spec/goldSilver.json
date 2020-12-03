@@ -13,13 +13,13 @@
     "type": "circle",
     "opacity": 1
   },
-  "height": 600,
-  "width": 800,
+  "height": { "step": 20 },
+  "width": 880,
   "encoding": {
     "x": {
       "field": "level",
       "type": "quantitative",
-      "scale": { "domain": [1, 25] },
+      "scale": { "domain": [1, 24] },
       "axis": { "labelAngle": 0, "labelFontSize": 12 }
     },
     "y": {

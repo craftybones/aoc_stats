@@ -44,12 +44,11 @@
     }
   },
   "width": 880,
-  "height": 740,
+  "height": { "step": 20 },
   "layer": [
     {
       "mark": {
-        "type": "bar",
-        "size": 18
+        "type": "bar"
       },
       "encoding": {
         "color": {
