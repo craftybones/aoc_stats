@@ -69,7 +69,7 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "dx": -10,
+        "dx": -20,
         "font": "sans-serif"
       },
       "encoding": {
