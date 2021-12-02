@@ -4,7 +4,7 @@
   "description": "",
   "main": "generateIndex.js",
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "vega": "^5.17.3",
     "vega-lite": "^4.10.4"
   },
