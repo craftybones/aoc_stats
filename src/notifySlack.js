@@ -10,9 +10,7 @@ const getEventsWithinWindow = (data, minutes) => {
 const message = ({ name, stars, level }) =>
   `${name} attained ${stars} stars and is at level ${level}`;
 
-const notifySlack = events => {
-  const url = process.env.SLACK_URL;
-  const text = events.map(message).join('\n');
+const notify = (text, url) => {
   const options = {
     method: 'POST'
   };
@@ -23,10 +21,21 @@ const notifySlack = events => {
   });
   req.write(JSON.stringify(data));
   req.end();
+}
+
+const notifySlack = events => {
+  const text = events.map(message).join('\n');
+  const url = process.env.SLACK_URL;
+  notify(text, url);
+};
+
+const notifyMattermost = events => {
+  const text = events.map(message).join('\n');
+  const url = process.env.MATTERMOST_URL;
+  notify(text, url);
 };
 
 const minutes = +process.env.MINUTES || 15;
-console.log('minutes is', minutes);
 const filteredEvents = getEventsWithinWindow(data, minutes);
-console.log(filteredEvents);
-if (filteredEvents.length > 0) notifySlack(filteredEvents);
+// if (filteredEvents.length > 0) notifySlack(filteredEvents);
+if (filteredEvents.length > 0) notifyMattermost(filteredEvents);
