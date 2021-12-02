@@ -40,6 +40,7 @@ jobs:
           TZ: Asia/Kolkata
           MINUTES: ${{ secrets.MINUTES }}
           SLACK_URL: ${{ secrets.SLACK_URL }}
+          MATTERMOST_URL: ${{ secrets.MATTERMOST_URL }}
       - run: npm run build --if-present
         env:
           CI: true
