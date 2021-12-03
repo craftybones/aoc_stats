@@ -12,9 +12,10 @@ const message = ({ name, stars, level }) =>
 
 const notify = (text, url) => {
   const options = {
-    method: 'POST'
+    method: 'POST',
+    headers: {'Content-Type': "application/json"}
   };
-  const data = { text };
+  const data = { text, username: "aoc_bot", icon_url: "https://robohash.org/aoc_bot"  };
   console.log(data);
   const req = https.request(url, options, res => {
     console.log('Status code from slack', res.statusCode);
