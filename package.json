@@ -13,7 +13,7 @@
     "fetch_data": "node src/fetchData.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node src/generateIndex.js",
-    "notify_slack": "node src/notifySlack.js"
+    "notify": "node src/notify.js"
   },
   "author": "",
   "license": "ISC"

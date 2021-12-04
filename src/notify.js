@@ -7,21 +7,21 @@ const getEventsWithinWindow = (data, minutes) => {
   return data.filter(d => new Date(d.ts) > minutesAgo);
 };
 
-const message = ({ name, stars, level }) =>
-  `${name} attained ${stars} stars and is at level ${level}`;
-
 const notify = (text, url) => {
   const options = {
     method: 'POST',
     headers: {'Content-Type': "application/json"}
   };
-  console.log(text);
+  // console.log(text);
   const req = https.request(url, options, res => {
     console.log('Status code: ', res.statusCode);
   });
   req.write(text);
   req.end();
 }
+
+const message = ({ name, stars, level }) =>
+  `${name} attained ${stars} stars and is at level ${level}`;
 
 const notifySlack = events => {
   const text = events.map(message).join('\n');
@@ -34,8 +34,14 @@ const notifySlack = events => {
   notify(JSON.stringify(data), url);
 };
 
+const tabular = (events, ) => {
+  const header = "|Name|Stars|Level|\n|--|--|--|\n"
+  const lines = events.map((x) => `|${x.name}|${x.stars}|${x.level}|`);
+  return header + lines.join('\n');
+}
+
 const notifyMattermost = events => {
-  const text = events.map(message).join('\n');
+  const text = tabular(events);
   const data = {
     text,
     username: "aoc_bot",
@@ -47,5 +53,7 @@ const notifyMattermost = events => {
 
 const minutes = +process.env.MINUTES || 15;
 const filteredEvents = getEventsWithinWindow(data, minutes);
-if (filteredEvents.length > 0 && process.env.SLACK_URL) notifySlack(filteredEvents);
-if (filteredEvents.length > 0 && process.env.MATTERMOST_URL) notifyMattermost(filteredEvents);
+if (filteredEvents.length > 0 && process.env.SLACK_URL)
+  notifySlack(filteredEvents);
+if (filteredEvents.length > 0 && process.env.MATTERMOST_URL)
+  notifyMattermost(filteredEvents);

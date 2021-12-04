@@ -35,7 +35,7 @@ jobs:
         env:
           TZ: Asia/Kolkata
           AOC_SESSION_ID: ${{ secrets.AOC_SESSION_ID }}
-      - run: npm run notify_slack
+      - run: npm run notify
         env:
           TZ: Asia/Kolkata
           MINUTES: ${{ secrets.MINUTES }}
