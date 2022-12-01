@@ -41,8 +41,8 @@
       "title": "Day",
       "scale": {
         "domain": [
-          { "year": 2021, "month": 12, "date": 1 },
-          { "year": 2021, "month": 12, "date": 26 }
+          { "year": 2022, "month": 12, "date": 1 },
+          { "year": 2022, "month": 12, "date": 26 }
         ]
       }
     },
