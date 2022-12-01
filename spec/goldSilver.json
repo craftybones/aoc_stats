@@ -33,6 +33,7 @@
       "aggregate": "count",
       "type": "ordinal",
       "scale": {
+        "domain": [1, 2],
         "range": ["silver", "orange"]
       },
       "legend": null
