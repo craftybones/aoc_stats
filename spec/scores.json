@@ -16,6 +16,11 @@
           "op": "count",
           "field": "stars",
           "as": "final_stars"
+        },
+        {
+          "op": "max",
+          "field": "local_score",
+          "as": "final_score"
         }
       ],
       "groupby": ["name"]
@@ -31,7 +36,7 @@
   },
   "encoding": {
     "y": {
-      "sort": "-x",
+      "sort": {"field":"final_score", "order":"descending","op":"max"},
       "field": "name",
       "type": "nominal",
       "title": null
