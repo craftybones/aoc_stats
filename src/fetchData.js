@@ -5,7 +5,7 @@ const transform = require('./transform').transform;
 const options = {
   hostname: 'adventofcode.com',
   port: 443,
-  path: '/2022/leaderboard/private/view/829678.json',
+  path: '/2023/leaderboard/private/view/829678.json',
   method: 'GET',
   headers: {
     cookie: `session=${process.env['AOC_SESSION_ID']}`,
@@ -13,11 +13,11 @@ const options = {
   },
 };
 
-https.get(options, (res) => {
+https.get(options, res => {
   console.log(res.statusCode);
   console.log(res.headers.location);
   let data = '';
-  res.on('data', (chunk) => (data += chunk));
+  res.on('data', chunk => (data += chunk));
   res.on('end', () => {
     const transformed = transform(JSON.parse(data));
     fs.writeFileSync('final_data.json', JSON.stringify(transformed), 'utf8');
