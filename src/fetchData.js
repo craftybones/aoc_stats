@@ -5,7 +5,7 @@ const transform = require('./transform').transform;
 const options = {
   hostname: 'adventofcode.com',
   port: 443,
-  path: '/2023/leaderboard/private/view/829678.json',
+  path: '/2019/leaderboard/private/view/829678.json',
   method: 'GET',
   headers: {
     cookie: `session=${process.env['AOC_SESSION_ID']}`,
